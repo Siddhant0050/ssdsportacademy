@@ -1,5 +1,4 @@
 import { PlayCircle, ChevronLeft, ChevronRight } from "lucide-react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
@@ -25,12 +24,12 @@ export default function Gallery() {
     {
       type: "image",
       src: image2,
-      title: "Parallel Bar Routine",
+      title: "Parallel Bar Training",
     },
     {
       type: "video",
       src: video1,
-      title: "High Bar Routine",
+      title: "High Bar Performance",
     },
     {
       type: "image",
@@ -40,53 +39,60 @@ export default function Gallery() {
     {
       type: "video",
       src: video2,
-      title: "Floor Workout Session",
+      title: "Floor Exercise Session",
     },
     {
       type: "image",
       src: image4,
-      title: "Our Coaches & Athletes",
+      title: "Coaches & Young Athletes",
     },
   ];
 
   return (
     <section
       id="gallery"
-      className="pt-12 pb-12 lg:pt-6 lg:pb-16 bg-white border-b border-slate-200/60 scroll-mt-16"
+      className="bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-100 scroll-mt-16"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 sm:mb-12">
-          <div className="max-w-2xl space-y-2.5">
-            <div className="w-fit">
-              <span className="bg-slate-900 text-white px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest">
-                Gallery
-              </span>
-            </div>
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
+          <div className="max-w-3xl">
+            <span className="inline-flex px-4 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-600 text-[11px] uppercase font-semibold tracking-[0.25em]">
+              Gallery
+            </span>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
-              Moments From
-              <span className="text-blue-600"> SSD Sport Academy</span>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight">
+              Moments From{" "}
+              <span className="font-bold text-red-600">
+                SSD Sports Academy
+              </span>
             </h2>
 
-            <p className="text-slate-500 text-xs sm:text-sm font-semibold leading-relaxed">
-              Every smile, every flip, every achievement reflects our commitment
-              to building confidence, discipline and champions.
+            <p className="mt-4 text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+              Capturing every achievement, movement, and milestone created
+              through passion, discipline, and dedication.
             </p>
           </div>
 
-          {/* Navigation */}
-          <div className="hidden sm:flex items-center gap-2">
-            <button className="gallery-prev w-10 h-10 rounded-xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-900 hover:text-white hover:border-slate-900 transition cursor-pointer shadow-sm">
-              <ChevronLeft size={18} />
+          {/* Navigation Controls */}
+          <div className="hidden sm:flex items-center gap-3">
+            <button
+              aria-label="Previous Slide"
+              className="gallery-prev w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-red-600 hover:text-white hover:border-red-600 transition-colors duration-300 shadow-sm"
+            >
+              <ChevronLeft size={20} />
             </button>
 
-            <button className="gallery-next w-10 h-10 rounded-xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-900 hover:text-white hover:border-slate-900 transition cursor-pointer shadow-sm">
-              <ChevronRight size={18} />
+            <button
+              aria-label="Next Slide"
+              className="gallery-next w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-red-600 hover:text-white hover:border-red-600 transition-colors duration-300 shadow-sm"
+            >
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>
 
+        {/* Carousel */}
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           navigation={{
@@ -98,14 +104,15 @@ export default function Gallery() {
             dynamicBullets: true,
           }}
           autoplay={{
-            delay: 3500,
+            delay: 4000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           spaceBetween={24}
-          className="gallery-swiper pb-12"
+          className="gallery-swiper !pb-14"
           breakpoints={{
             0: {
-              slidesPerView: 1.15,
+              slidesPerView: 1.1,
               spaceBetween: 16,
             },
             640: {
@@ -119,34 +126,33 @@ export default function Gallery() {
           }}
         >
           {media.map((item, index) => (
-            <SwiperSlide key={index} className="h-auto">
-              <div className="group h-full bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300">
-                {/* Media */}
-                <div className="relative aspect-video overflow-hidden bg-slate-100">
+            <SwiperSlide key={index}>
+              <div className="group rounded-3xl overflow-hidden border border-slate-100 bg-white shadow-md hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
+                {/* Media Container */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-slate-900 shrink-0">
                   {item.type === "image" ? (
                     <img
                       src={item.src}
                       alt={item.title}
                       loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
                   ) : (
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full h-full group/video">
                       <video
                         controls
                         preload="metadata"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover relative z-10"
                       >
                         <source src={item.src} type="video/mp4" />
                       </video>
 
-                      {/* Play Icon */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/10 pointer-events-none">
-                        <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                      {/* Video Play Overlay Indicator */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-[2px] pointer-events-none group-hover/video:opacity-0 transition-opacity duration-300 z-20">
+                        <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center shadow-lg">
                           <PlayCircle
-                            size={28}
-                            fill="white"
-                            className="text-white"
+                            size={32}
+                            className="text-white fill-white/20"
                           />
                         </div>
                       </div>
@@ -154,9 +160,9 @@ export default function Gallery() {
                   )}
                 </div>
 
-                {/* Content */}
-                <div className="p-4">
-                  <h3 className="text-sm font-black text-slate-900 group-hover:text-blue-600 transition-colors">
+                {/* Card Title */}
+                <div className="p-5 flex-1 flex items-center">
+                  <h3 className="text-sm font-semibold tracking-wide text-slate-900 group-hover:text-red-600 transition-colors duration-300">
                     {item.title}
                   </h3>
                 </div>
@@ -166,20 +172,16 @@ export default function Gallery() {
         </Swiper>
       </div>
 
-      <style jsx global>{`
-        .gallery-swiper .swiper-pagination {
-          bottom: 0 !important;
-        }
-
+      {/* Global Swiper Bullet Styling Customization */}
+      <style>{`
         .gallery-swiper .swiper-pagination-bullet {
           background: #cbd5e1;
           opacity: 1;
         }
-
         .gallery-swiper .swiper-pagination-bullet-active {
-          background: #2563eb;
-          width: 18px;
-          border-radius: 9999px;
+          background: #dc2626 !important;
+          width: 20px !important;
+          border-radius: 9999px !important;
         }
       `}</style>
     </section>

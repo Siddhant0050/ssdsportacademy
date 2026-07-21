@@ -1,21 +1,32 @@
 import { useEffect, useState } from "react";
 import { Menu, X, PhoneCall } from "lucide-react";
+import logo from "../images/logo.png";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMenuOpen(false);
+      }
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-  const navLinks = [
+  const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Programs", href: "#programs" },
@@ -26,195 +37,100 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled || menuOpen
-          ? "bg-white/70 backdrop-blur-2xl shadow-lg border-b border-white/30 py-3"
-          : "bg-white/20 backdrop-blur-xl py-4"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-md py-3.5 border-b border-gray-100"
+          : "bg-gradient-to-b from-black/60 via-black/20 to-transparent backdrop-blur-[2px] py-5"
       }`}
     >
-      {/* Glass Reflection */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-        <div className="absolute -top-24 left-0 w-full h-40 bg-gradient-to-r from-transparent via-white/40 to-transparent blur-3xl opacity-70 animate-pulse" />
-
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/80 to-transparent" />
-
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-
           {/* Logo */}
-          <a href="#home" className="flex flex-col group">
-
-            <h1 className="text-2xl font-black tracking-wide bg-gradient-to-r from-blue-600 via-blue-500 to-red-500 bg-clip-text text-transparent">
-
-              SSD SPORTS
-
-            </h1>
-
-            <span className="text-[10px] uppercase tracking-[3px] font-bold text-slate-500 group-hover:text-blue-600 transition">
-
-              Gymnastics Academy
-
-            </span>
-
+          <a
+            href="#home"
+            className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-lg p-1 transition"
+          >
+            <img
+              src={logo}
+              alt="Academy Logo"
+              className="h-12 sm:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
+            />
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-
-            {navLinks.map((link) => (
+            {navItems.map((item) => (
               <a
-                key={link.name}
-                href={link.href}
-                className="
-                  relative
-                  text-sm
-                  font-bold
-                  tracking-wide
-                  text-slate-700
-                  transition-all
-                  duration-300
-                  hover:text-blue-600
-                  after:absolute
-                  after:left-0
-                  after:-bottom-1
-                  after:h-[2px]
-                  after:w-0
-                  after:bg-gradient-to-r
-                  after:from-blue-600
-                  after:to-red-500
-                  after:transition-all
-                  after:duration-300
-                  hover:after:w-full
-                "
+                key={item.name}
+                href={item.href}
+                className={`group relative text-sm font-semibold tracking-wide transition-colors duration-200 py-1 ${
+                  isScrolled
+                    ? "text-gray-700 hover:text-red-600"
+                    : "text-white/90 hover:text-white"
+                }`}
               >
-                {link.name}
+                {item.name}
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-red-600 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
               </a>
             ))}
-
           </nav>
 
-          {/* CTA */}
-          <div className="hidden lg:block">
-
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center">
             <a
               href="#contact"
-              className="
-                relative
-                overflow-hidden
-                flex
-                items-center
-                gap-2
-                rounded-full
-                bg-gradient-to-r
-                from-blue-600
-                via-blue-500
-                to-red-500
-                px-6
-                py-2.5
-                font-bold
-                text-white
-                shadow-lg
-                shadow-blue-600/25
-                hover:scale-105
-                transition-all
-                duration-300
-                group
-              "
+              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5"
             >
-
-              {/* Shine */}
-              <span className="absolute inset-0 overflow-hidden rounded-full">
-
-                <span className="absolute left-[-120%] top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent rotate-12 group-hover:left-[150%] transition-all duration-1000" />
-
-              </span>
-
-              <PhoneCall size={16} />
-
-              Enroll Now
-
+              <PhoneCall size={16} className="animate-pulse" />
+              <span>Enroll Now</span>
             </a>
-
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Toggle Button */}
           <button
+            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden p-2 rounded-xl bg-white/40 backdrop-blur-xl border border-white/40 text-slate-700 hover:bg-white transition"
+            aria-label="Toggle navigation menu"
+            className={`lg:hidden p-2.5 rounded-xl transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 ${
+              isScrolled
+                ? "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                : "bg-white/15 text-white hover:bg-white/25 backdrop-blur-md"
+            }`}
           >
-            {menuOpen ? <X size={26} /> : <Menu size={26} />}
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-
         </div>
-
       </div>
 
       {/* Mobile Drawer */}
-
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+          menuOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-white/90 backdrop-blur-2xl border-t border-slate-200 mt-3 shadow-xl">
-
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="
-                block
-                px-8
-                py-4
-                font-semibold
-                text-slate-700
-                border-b
-                border-slate-100
-                hover:bg-blue-50
-                hover:text-blue-600
-                transition-all
-              "
-            >
-              {link.name}
-            </a>
-          ))}
-
-          <div className="p-5 bg-slate-50">
-
-            <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
-              className="
-                flex
-                items-center
-                justify-center
-                gap-2
-                w-full
-                rounded-xl
-                bg-gradient-to-r
-                from-blue-600
-                to-red-500
-                py-3.5
-                text-white
-                font-bold
-                shadow-lg
-                hover:scale-[1.02]
-                transition
-              "
-            >
-              <PhoneCall size={16} />
-
-              Enroll Now
-
-            </a>
-
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-3 pb-4">
+          <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 space-y-1">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="block px-4 py-3 rounded-xl text-base font-semibold text-gray-700 hover:text-red-600 hover:bg-red-50/60 transition-colors duration-150"
+              >
+                {item.name}
+              </a>
+            ))}
+            <div className="pt-3 mt-2 border-t border-gray-100">
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center gap-2 bg-red-600 active:bg-red-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition duration-150"
+              >
+                <PhoneCall size={18} />
+                <span>Enroll Now</span>
+              </a>
+            </div>
           </div>
-
         </div>
       </div>
     </header>

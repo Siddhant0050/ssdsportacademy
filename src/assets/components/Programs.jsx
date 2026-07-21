@@ -8,126 +8,135 @@ export default function Programs() {
   const programs = [
     {
       title: "Toddlers Gymnastics",
-      age: "Age: 4 - 6 Years",
-      duration: "60 Mins / Session",
-      focus: "Basic motor skills, balance mechanics, and safe play-based flexibility routines.",
+      age: "4 - 6 Years",
+      duration: "60 Mins",
+      focus:
+        "Building balance, coordination, confidence, and basic movement skills through safe training.",
       badge: "Beginner",
-      badgeBg: "bg-emerald-500 text-white",
+      badgeBg: "bg-emerald-500",
       image: image1,
-      icon: <Move size={14} className="text-emerald-600" />
+      icon: <Move size={18} />,
     },
     {
-      title: "Foundational Class",
-      age: "Age: 7 - 10 Years",
-      duration: "60 Mins / Session",
-      focus: "Tumbling tracks, posture control adjustments, and introductory cartwheels.",
-      badge: "Most Popular",
-      badgeBg: "bg-blue-600 text-white",
+      title: "Foundation Training",
+      age: "7 - 10 Years",
+      duration: "60 Mins",
+      focus:
+        "Developing flexibility, strength, posture control, and essential gymnastics techniques.",
+      badge: "Popular",
+      badgeBg: "bg-red-600",
       image: image2,
-      icon: <Award size={14} className="text-blue-600" />
+      icon: <Award size={18} />,
     },
     {
-      title: "Advanced / Competitive",
-      age: "Age: 11 - 15 Years",
-      duration: "60 Mins / Session",
-      focus: "Intense core conditioning, routine mastery, layout flips, and agility drills.",
-      badge: "Elite Track",
-      badgeBg: "bg-red-600 text-white",
+      title: "Advanced Training",
+      age: "11 - 15 Years",
+      duration: "60 Mins",
+      focus:
+        "Performance focused training with advanced skills, conditioning, and competitive preparation.",
+      badge: "Elite",
+      badgeBg: "bg-slate-900",
       image: image3,
-      icon: <Clock size={14} className="text-red-600" />
-    }
+      icon: <Clock size={18} />,
+    },
   ];
 
   return (
     <section
       id="programs"
-      className="pt-12 pb-12 lg:pt-6 lg:pb-16 bg-slate-50 border-b border-slate-200/60 scroll-mt-16"
+      className="bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-100 scroll-mt-16"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <span className="inline-flex px-4 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-600 text-[11px] uppercase font-semibold tracking-[0.25em]">
+            Our Programs
+          </span>
 
-        {/* Header */}
-        <div className="text-left lg:text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-2.5">
-          <div className="lg:mx-auto w-fit">
-            <span className="bg-slate-900 text-white px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest">
-              Our Training Tracks
-            </span>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
-            High-Performance 
-            <span className="text-blue-600"> Gymnastics </span>
-            Batches
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight">
+            Training Programs{" "}
+            <span className="font-bold text-red-600">Built For Growth</span>
           </h2>
 
-          <p className="text-slate-500 text-xs sm:text-sm font-semibold max-w-xl lg:mx-auto leading-relaxed">
-            Carefully curated age groups designed to safely accelerate physical
-            confidence under strict professional instruction.
+          <p className="mt-4 text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+            Age-based gymnastics programs designed to develop strength,
+            confidence, flexibility, and athletic ability.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Program Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {programs.map((prog, index) => (
             <div
               key={index}
-              className="group bg-white border border-slate-200/60 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl hover:border-slate-300/80 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
             >
-              {/* Image & Content Wrapper */}
-              <div>
-                <div className="relative overflow-hidden aspect-video bg-slate-100 border-b border-slate-100">
-                  <img
-                    src={prog.image}
-                    alt={prog.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-                  />
-                  <span
-                    className={`absolute top-3 right-3 text-[9px] font-black uppercase px-3 py-1 rounded-md shadow-md backdrop-blur-xs ${prog.badgeBg}`}
-                  >
-                    {prog.badge}
-                  </span>
-                </div>
+              {/* Card Image Container */}
+              <div className="relative overflow-hidden aspect-[4/3] shrink-0">
+                <img
+                  src={prog.image}
+                  alt={prog.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
 
-                {/* Content */}
-                <div className="p-4 space-y-3">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-md bg-slate-50 border border-slate-200/60 flex items-center justify-center shrink-0">
+                {/* Bottom Shadow Gradient for Text Contrast */}
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+
+                {/* Badge Shifted to Bottom Right */}
+                <span
+                  className={`absolute bottom-3 right-3 ${prog.badgeBg} text-white px-3 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider shadow-md backdrop-blur-sm z-10`}
+                >
+                  {prog.badge}
+                </span>
+              </div>
+
+              {/* Card Content */}
+              <div className="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  {/* Icon & Title */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0">
                       {prog.icon}
                     </div>
-                    <h3 className="text-sm font-black text-slate-900 tracking-tight">
+
+                    <h3 className="text-lg font-bold text-slate-900">
                       {prog.title}
                     </h3>
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    <span className="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-1 rounded-md border border-slate-200/40">
-                      {prog.age}
+                  {/* Metadata Pills */}
+                  <div className="flex items-center gap-2.5 mt-4">
+                    <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                      Age {prog.age}
                     </span>
-                    <span className="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-md border border-blue-100/30">
+
+                    <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-600">
                       {prog.duration}
                     </span>
                   </div>
 
-                  <p className="text-slate-500 text-xs leading-relaxed font-medium">
+                  {/* Program Description */}
+                  <p className="mt-4 text-sm text-slate-600 leading-relaxed font-light">
                     {prog.focus}
                   </p>
                 </div>
-              </div>
 
-              {/* Button */}
-              <div className="p-4 border-t border-slate-100 bg-slate-50/40 group-hover:bg-white transition-colors">
+                {/* Action CTA */}
                 <a
                   href="#contact"
-                  className="w-full inline-flex items-center justify-between bg-white border border-slate-200 text-slate-800 group-hover:bg-slate-900 group-hover:border-slate-900 group-hover:text-white px-3 py-2 rounded-xl text-xs font-black transition-all duration-200 shadow-xs"
+                  className="mt-6 flex items-center justify-between rounded-full bg-slate-900 px-5 py-3 text-sm text-white font-semibold hover:bg-red-600 transition-colors duration-300 shadow-sm"
                 >
-                  <span>Book Free Trial Batch</span>
-                  <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform duration-200 text-slate-400 group-hover:text-white" />
+                  <span>Book Free Trial</span>
+                  <ArrowRight
+                    size={16}
+                    className="group-hover:translate-x-1 transition-transform duration-300"
+                  />
                 </a>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

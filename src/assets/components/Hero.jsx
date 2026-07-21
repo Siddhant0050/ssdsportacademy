@@ -1,128 +1,370 @@
-import heroImage from "../images/hero.jpeg";
-import { ArrowRight, PhoneCall, Star, Trophy, Users } from "lucide-react";
+import { useState, useEffect } from "react";
+import {
+  ArrowRight,
+  MessageCircle,
+  ChevronLeft,
+  ChevronRight,
+  Mouse,
+} from "lucide-react";
+
+import hero1 from "../images/hero1.jpeg";
+import hero2 from "../images/hero2.jpeg";
+import hero3 from "../images/hero3.jpeg";
+import hero4 from "../images/hero4.jpeg";
 
 export default function Hero() {
-  return (
-    <section 
-      id="home" 
-      className="relative bg-slate-50 pt-24 pb-10 md:pt-32 md:pb-16 flex items-center overflow-hidden"
-    >
-      {/* Premium Background Graphic Accents */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-100/40 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-72 h-72 bg-gradient-to-tr from-red-50/30 to-transparent rounded-full blur-2xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          {/* LEFT: STRATEGIC MARKETING CONTENT (Columns: 7) */}
-          <div className="lg:col-span-7 text-left space-y-4 order-2 lg:order-1">
-            
-            {/* Premium Trust Pill */}
-            <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100/80 px-3 py-1 rounded-full shadow-sm">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+  const slides = [hero1, hero2, hero3, hero4];
+
+  const heroMessages = [
+    {
+      title: "discipline creates champions.",
+      subtitle: "building strong habits that shape confident athletes.",
+      animation: "animate-slideUp",
+    },
+    {
+      title: "small steps. big achievements.",
+      subtitle: "every practice brings you closer to excellence.",
+      animation: "animate-fadeScale",
+    },
+    {
+      title: "creating fearless athletes.",
+      subtitle: "developing strength, confidence, and character.",
+      animation: "animate-slideLeft",
+    },
+    {
+      title: "excellence starts here.",
+      subtitle: "where passion meets professional training.",
+      animation: "animate-slideRight",
+    },
+  ];
+
+
+  const [current, setCurrent] = useState(0);
+  const [quoteIndex, setQuoteIndex] = useState(0);
+
+
+  const whatsapp =
+    "https://wa.me/919325017557?text=Hello%20SSD%20Sports%20Academy,%20I%20want%20to%20book%20a%20Free%20Trial.";
+
+
+  // Background Slider
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+
+
+  // Heading Slider
+  useEffect(() => {
+    const quoteTimer = setInterval(() => {
+      setQuoteIndex((prev) => (prev + 1) % heroMessages.length);
+    }, 5000);
+
+    return () => clearInterval(quoteTimer);
+  }, [heroMessages.length]);
+
+
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  };
+
+
+  const prevSlide = () => {
+    setCurrent((prev) =>
+      prev === 0 ? slides.length - 1 : prev - 1
+    );
+  };
+
+
+  return (
+    <section
+      id="home"
+      className="relative min-h-screen overflow-hidden pt-32 pb-24 sm:pt-36 lg:pt-40 flex flex-col justify-center"
+    >
+
+
+      {/* Background Images */}
+      <div className="absolute inset-0">
+        {slides.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt=""
+            className={`absolute inset-0 h-full w-full object-cover transition-all duration-[5000ms] ease-linear ${
+              current === index
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-110"
+            }`}
+          />
+        ))}
+      </div>
+
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/60"></div>
+
+
+
+      {/* Glow Effects */}
+      <div className="absolute -left-40 top-20 h-[450px] w-[450px] rounded-full bg-blue-600/20 blur-[140px]"></div>
+
+      <div className="absolute right-0 bottom-0 h-[380px] w-[380px] rounded-full bg-red-600/20 blur-[130px]"></div>
+
+
+
+      {/* Hero Content */}
+      <div className="relative z-20 flex h-full items-center justify-center px-6 -translate-y-8">
+
+        <div className="mx-auto max-w-5xl text-center">
+
+
+          {/* Badge */}
+          <div className="inline-flex items-center gap-6 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl px-6 py-2.5">
+
+            <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></div>
+
+            <span className="text-xs uppercase tracking-[1px] text-white font-semibold">
+              EST. 2026 • SSD SPORTS ACADEMY
+            </span>
+
+          </div>
+
+
+
+          {/* Animated Heading */}
+
+          <div
+            key={quoteIndex}
+            className={heroMessages[quoteIndex].animation}
+          >
+
+            <h1 className="
+              mt-8
+              uppercase
+              leading-[0.95]
+              tracking-[0.18em]
+              drop-shadow-2xl
+            ">
+
+              <span className="
+                block
+                text-white
+                text-3xl
+                sm:text-5xl
+                lg:text-6xl
+                font-light
+              ">
+                {heroMessages[quoteIndex].title}
               </span>
-              <span className="text-xs font-bold text-blue-700 tracking-wide uppercase">
-                Pune's Top-Rated Gymnastics Center
-              </span>
-            </div>
-            
-            {/* High-Impact Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-[1.15]">
-              Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Strength</span>,<br /> 
-              Balance & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">Confidence</span>.
+
             </h1>
 
-            {/* Strategic Value Proposition */}
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-xl font-medium">
-              Professional gymnastics coaching for children in Dhanori. Equipped with premium safety setups, certified instructors, and structured programs tailored to your child's physical growth.
+
+
+            <p className="
+              mx-auto
+              mt-6
+              max-w-xl
+              text-sm
+              sm:text-base
+              md:text-lg
+              font-light
+              italic
+              tracking-[0.12em]
+              leading-relaxed
+              text-gray-200
+            ">
+              "{heroMessages[quoteIndex].subtitle}"
             </p>
 
-            {/* High-Converting Call to Actions */}
-            <div className="flex items-center flex-wrap gap-3 pt-2">
-              <a 
-                href="#contact"
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-xl flex items-center gap-2 transition-all duration-300 font-bold shadow-lg shadow-blue-600/15 hover:shadow-blue-600/25 transform hover:-translate-y-0.5 active:translate-y-0 text-xs sm:text-sm"
-              >
+          </div>
+
+
+
+
+
+          {/* Buttons */}
+          <div className="mt-8 sm:mt-12 flex flex-wrap justify-center gap-5">
+
+
+            <a
+              href={whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="group relative overflow-hidden rounded-full bg-red-600 px-9 py-4 text-white font-semibold shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-red-700"
+            >
+
+              <span className="absolute left-[-120%] top-0 h-full w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/60 to-transparent transition-all duration-1000 group-hover:left-[180%]" />
+
+              <span className="relative flex items-center gap-3">
                 Book Free Trial
-                <ArrowRight size={14} strokeWidth={2.5} />
-              </a>
-              
-              <a 
-                href="tel:+911234567890" /* Replace with your absolute contact registry link */
-                className="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 px-5 py-2.5 rounded-xl flex items-center gap-2 transition-all duration-300 font-bold shadow-sm transform hover:-translate-y-0.5 active:translate-y-0 text-xs sm:text-sm"
-              >
-                <PhoneCall size={13} className="text-blue-600" />
-                Talk to Coach
-              </a>
-            </div>
+                <ArrowRight size={18}/>
+              </span>
 
-            {/* Micro Trust Dashboard Indicators */}
-            <div className="bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200/60 p-3 mt-6 grid grid-cols-3 divide-x divide-slate-100 shadow-sm max-w-lg">
-              {/* Stat Card 1 */}
-              <div className="flex items-center gap-2 px-2 justify-center sm:justify-start">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
-                  <Users size={15} />
-                </div>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-extrabold text-slate-800 leading-none">150+</h4>
-                  <p className="text-[10px] text-slate-400 font-semibold mt-1 leading-none">Active Kids</p>
-                </div>
-              </div>
+            </a>
 
-              {/* Stat Card 2 */}
-              <div className="flex items-center gap-2 px-2 justify-center sm:justify-start">
-                <div className="w-8 h-8 rounded-xl bg-red-50 flex items-center justify-center text-red-600 shrink-0">
-                  <Trophy size={15} />
-                </div>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-extrabold text-slate-800 leading-none">Certified</h4>
-                  <p className="text-[10px] text-slate-400 font-semibold mt-1 leading-none">Coaching</p>
-                </div>
-              </div>
 
-              {/* Stat Card 3 */}
-              <div className="flex items-center gap-2 px-2 justify-center sm:justify-start">
-                <div className="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center text-amber-500 shrink-0">
-                  <Star size={14} className="fill-amber-400 text-amber-400" />
-                </div>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-extrabold text-slate-800 leading-none">5.0/5</h4>
-                  <p className="text-[10px] text-slate-400 font-semibold mt-1 leading-none">Google Star</p>
-                </div>
-              </div>
-            </div>
+
+            <a
+              href={whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-white/30 bg-white/10 backdrop-blur-xl px-9 py-4 text-white font-semibold transition-all duration-300 hover:bg-white hover:text-black hover:scale-105"
+            >
+
+              <span className="flex items-center gap-3">
+                <MessageCircle size={18}/>
+                Chat on WhatsApp
+              </span>
+
+            </a>
+
 
           </div>
 
-          {/* RIGHT: PREMIUM ARENA IMAGE WRAPPER (Columns: 5) */}
-          <div className="lg:col-span-5 order-1 lg:order-2 w-full max-w-sm sm:max-w-md mx-auto lg:max-w-none">
-            <div className="relative p-1.5 bg-gradient-to-tr from-slate-200 via-white to-blue-200 rounded-[22px] shadow-xl">
-              <div className="overflow-hidden rounded-2xl bg-slate-100">
-                <img
-                  src={heroImage}
-                  alt="SSD Sports Academy Premium Gymnastics Arena Setup"
-                  className="w-full object-cover aspect-[4/3] transform hover:scale-102 transition-transform duration-500 ease-out"
-                  onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80" }}
-                />
+
+
+
+
+          {/* Stats */}
+          <div className="mt-12 sm:mt-16 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+
+            {[
+              {
+                number:"150+",
+                label:"Happy Students"
+              },
+              {
+                number:"5★",
+                label:"Google Rating"
+              },
+              {
+                number:"100%",
+                label:"Safe Training"
+              },
+              {
+                number:"10+",
+                label:"Awards Won"
+              },
+
+            ].map((item,index)=>(
+
+              <div
+                key={index}
+                className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 sm:p-6 transition-all duration-300 hover:-translate-y-2 hover:bg-white/20"
+              >
+
+                <h2 className="text-2xl sm:text-4xl font-black text-white">
+                  {item.number}
+                </h2>
+
+                <p className="mt-2 uppercase tracking-[2px] sm:tracking-[3px] text-xs sm:text-sm text-gray-300">
+                  {item.label}
+                </p>
+
               </div>
 
-              {/* Floating Real-Time Google Rating Badge */}
-              <a 
-                href="https://www.google.com/maps/place/SSD+SPORTS+ACADEMY/"
-                target="_blank"
-                rel="noreferrer"
-                className="absolute top-4 right-4 bg-slate-900/90 backdrop-blur-md text-white px-2.5 py-1 rounded-lg shadow-lg font-bold text-[10px] sm:text-xs flex items-center gap-1 hover:bg-slate-900 transition-colors border border-slate-700/50"
-              >
-                <span className="text-amber-400 font-bold">★</span> 
-                <span>5.0 Verified</span>
-              </a>
-            </div>
+            ))}
+
           </div>
+
 
         </div>
+
       </div>
+
+
+
+
+
+      {/* Previous Arrow */}
+      <button
+        onClick={prevSlide}
+        aria-label="Previous Slide"
+        className="hidden md:flex absolute left-6 lg:left-10 top-1/2 z-30 -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-4 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-white hover:text-black"
+      >
+        <ChevronLeft size={28}/>
+      </button>
+
+
+
+
+      {/* Next Arrow */}
+      <button
+        onClick={nextSlide}
+        aria-label="Next Slide"
+        className="hidden md:flex absolute right-6 lg:right-10 top-1/2 z-30 -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-4 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-white hover:text-black"
+      >
+        <ChevronRight size={28}/>
+      </button>
+
+
+
+
+      {/* Slider Dots */}
+      <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 gap-3">
+
+        {slides.map((_,index)=>(
+
+          <button
+            key={index}
+            onClick={()=>setCurrent(index)}
+            aria-label={`Go to slide ${index+1}`}
+            className={`transition-all duration-500 ${
+              current===index
+              ?"h-2 w-12 rounded-full bg-red-500"
+              :"h-2 w-2 rounded-full bg-white/60 hover:bg-white"
+            }`}
+          />
+
+        ))}
+
+      </div>
+
+
+
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-6 left-8 hidden lg:flex items-center gap-4 z-30">
+
+        <div className="flex h-12 w-7 justify-center rounded-full border border-white/40 p-1">
+
+          <Mouse
+            size={16}
+            className="animate-bounce text-white mt-1"
+          />
+
+        </div>
+
+
+        <div>
+
+          <p className="text-xs uppercase tracking-[5px] text-gray-300">
+            Scroll
+          </p>
+
+          <p className="text-white font-semibold">
+            Discover More
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      {/* Bottom Gradient */}
+      <div className="absolute bottom-0 left-0 h-40 w-full bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none"></div>
+
+
     </section>
   );
 }

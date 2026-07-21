@@ -64,105 +64,82 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-us"
-      className="pt-12 pb-12 lg:pt-6 lg:pb-16 bg-slate-50 border-b border-slate-200/60 scroll-mt-16"
+      className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-slate-50 border-b border-slate-100 scroll-mt-16"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      {/* Background Glow */}
+      <div className="absolute -left-40 top-20 w-96 h-96 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
 
+      <div className="relative max-w-6xl mx-auto px-5 sm:px-6">
         {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <span className="inline-flex px-4 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-600 text-[11px] uppercase font-semibold tracking-[0.25em]">
+            Why Choose Us
+          </span>
 
-        <div className="text-left lg:text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-2.5">
-
-          <div className="lg:mx-auto w-fit">
-            <span className="bg-slate-900 text-white px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest">
-              Why Choose Us
-            </span>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
-            Why Parents Choose
-            <span className="text-blue-600">
-              {" "}SSD Sport Academy
+          <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-slate-900 leading-tight">
+            Building{" "}
+            <span className="font-bold text-red-600">
+              future champions
             </span>
           </h2>
 
-          <p className="text-slate-500 text-xs sm:text-sm font-semibold leading-relaxed max-w-2xl lg:mx-auto">
-            We provide a safe, structured and enjoyable gymnastics environment
-            where children develop strength, flexibility, confidence and
-            lifelong healthy habits under experienced coaches.
+          <p className="mt-4 text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+            A professional gymnastics environment where children develop
+            strength, confidence, discipline, and a winning mindset.
           </p>
-
         </div>
 
-        {/* Feature Cards */}
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
+        {/* Feature Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
           {features.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={index}
-                className="group bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col"
+                className="group bg-white rounded-3xl border border-slate-100 p-6 hover:-translate-y-2 hover:shadow-xl hover:border-red-100 transition-all duration-500 flex flex-col h-full"
               >
-
-                <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center group-hover:bg-blue-600 transition">
-
+                <div className="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300 shrink-0">
                   <Icon
                     size={22}
-                    className="text-blue-600 group-hover:text-white transition"
+                    className="text-red-600 group-hover:text-white transition-colors duration-300"
                   />
-
                 </div>
 
-                <h3 className="mt-4 text-base font-black text-slate-900 tracking-tight">
+                <h3 className="mt-5 text-base font-bold text-slate-900">
                   {item.title}
                 </h3>
 
-                <p className="mt-2 text-sm text-slate-500 leading-6 flex-grow">
+                <p className="mt-2 text-sm text-slate-500 font-light leading-relaxed flex-1">
                   {item.description}
                 </p>
-
               </div>
             );
           })}
-
         </div>
 
-        {/* Bottom Statistics */}
+        {/* Trust Statistics */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-12 sm:mt-16">
+          {[
+            ["200+", "Happy Students"],
+            ["5★", "Parent Reviews"],
+            ["8+", "Professional Apparatus"],
+            ["100%", "Safety Focused"],
+          ].map((stat, index) => (
+            <div
+              key={index}
+              className="bg-slate-900 rounded-3xl p-6 text-center hover:bg-red-600 transition-colors duration-500 shadow-md"
+            >
+              <h3 className="text-3xl sm:text-4xl font-light text-white">
+                {stat[0]}
+              </h3>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
-
-          <div className="bg-white rounded-2xl border border-slate-200 p-5 text-center">
-            <h3 className="text-3xl font-black text-blue-600">200+</h3>
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-wide mt-2">
-              Happy Students
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl border border-slate-200 p-5 text-center">
-            <h3 className="text-3xl font-black text-blue-600">5★</h3>
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-wide mt-2">
-              Parent Reviews
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl border border-slate-200 p-5 text-center">
-            <h3 className="text-3xl font-black text-blue-600">8+</h3>
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-wide mt-2">
-              Professional Equipment
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl border border-slate-200 p-5 text-center">
-            <h3 className="text-3xl font-black text-blue-600">100%</h3>
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-wide mt-2">
-              Safety Focused
-            </p>
-          </div>
-
+              <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-slate-300">
+                {stat[1]}
+              </p>
+            </div>
+          ))}
         </div>
-
       </div>
     </section>
   );
