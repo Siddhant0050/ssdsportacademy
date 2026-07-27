@@ -44,8 +44,13 @@ export default function Hero() {
   const [quoteIndex, setQuoteIndex] = useState(0);
 
 
-  const whatsapp =
-    "https://wa.me/919325017557?text=Hello%20SSD%20Sports%20Academy,%20I%20want%20to%20book%20a%20Free%20Trial.";
+ // Google Form URL
+const googleForm =
+  "https://forms.gle/VUKPw7JjiGm1WehB6";
+
+// WhatsApp URL
+const whatsapp =
+  "https://wa.me/919325017557?text=Hello%20SSD%20Sports%20Academy!%20I%20am%20interested%20in%20joining%20your%20gymnastics%20classes.%20Could%20you%20please%20share%20more%20details%20about%20the%20batches,%20fees,%20and%20free%20trial%20session%3F";
 
 
   // Background Slider
@@ -195,37 +200,33 @@ export default function Hero() {
           <div className="mt-8 sm:mt-12 flex flex-wrap justify-center gap-5">
 
 
-            <a
-              href={whatsapp}
-              target="_blank"
-              rel="noreferrer"
-              className="group relative overflow-hidden rounded-full bg-red-600 px-9 py-4 text-white font-semibold shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-red-700"
-            >
+         <a
+  href={googleForm}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group relative overflow-hidden rounded-full bg-red-600 px-9 py-4 text-white font-semibold shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-red-700"
+>
+  <span className="absolute left-[-120%] top-0 h-full w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/60 to-transparent transition-all duration-1000 group-hover:left-[180%]" />
 
-              <span className="absolute left-[-120%] top-0 h-full w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/60 to-transparent transition-all duration-1000 group-hover:left-[180%]" />
-
-              <span className="relative flex items-center gap-3">
-                Book Free Trial
-                <ArrowRight size={18}/>
-              </span>
-
-            </a>
+  <span className="relative flex items-center gap-3">
+    Book Free Trial
+    <ArrowRight size={18}/>
+  </span>
+</a>
 
 
 
-            <a
-              href={whatsapp}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/30 bg-white/10 backdrop-blur-xl px-9 py-4 text-white font-semibold transition-all duration-300 hover:bg-white hover:text-black hover:scale-105"
-            >
-
-              <span className="flex items-center gap-3">
-                <MessageCircle size={18}/>
-                Chat on WhatsApp
-              </span>
-
-            </a>
+         <a
+  href={whatsapp}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="rounded-full border border-white/30 bg-white/10 backdrop-blur-xl px-9 py-4 text-white font-semibold transition-all duration-300 hover:bg-white hover:text-black hover:scale-105"
+>
+  <span className="flex items-center gap-3">
+    <MessageCircle size={18} />
+    Chat on WhatsApp
+  </span>
+</a>
 
 
           </div>
@@ -235,38 +236,36 @@ export default function Hero() {
 
 
           {/* Stats */}
-          <div className="mt-12 sm:mt-16 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
-
+<div className="mt-10 sm:mt-12 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
             {[
-              {
-                number:"150+",
-                label:"Happy Students"
-              },
-              {
-                number:"5★",
-                label:"Google Rating"
-              },
-              {
-                number:"100%",
-                label:"Safe Training"
-              },
-              {
-                number:"10+",
-                label:"Awards Won"
-              },
+  {
+    number: "NEW",
+    label: "Admissions Open",
+  },
+  {
+    number: "FREE",
+    label: "Trial Class",
+  },
+  {
+    number: "SAFE",
+    label: "Training Environment",
+  },
+  {
+    number: "PRO",
+    label: "Expert Coaching",
+  },
 
             ].map((item,index)=>(
 
               <div
                 key={index}
-                className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 sm:p-6 transition-all duration-300 hover:-translate-y-2 hover:bg-white/20"
-              >
+className="group rounded-2xl border border-white/15 bg-white/10 backdrop-blur-2xl shadow-lg shadow-black/20 p-3 sm:p-4 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:bg-white/15 hover:border-red-500/40 hover:shadow-red-500/20">
 
-                <h2 className="text-2xl sm:text-4xl font-black text-white">
+                <h2 className="text-xl sm:text-2xl font-bold tracking-wide text-white">
                   {item.number}
                 </h2>
 
-                <p className="mt-2 uppercase tracking-[2px] sm:tracking-[3px] text-xs sm:text-sm text-gray-300">
+                <p className="mt-1 uppercase text-[10px] sm:text-xs font-medium tracking-[2px] text-gray-300">
                   {item.label}
                 </p>
 

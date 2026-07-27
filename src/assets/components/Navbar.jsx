@@ -26,6 +26,8 @@ export default function Navbar() {
     };
   }, []);
 
+  const googleForm = "https://forms.gle/VUKPw7JjiGm1WehB6";
+
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -78,7 +80,9 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center">
             <a
-              href="#contact"
+              href={googleForm}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5"
             >
               <PhoneCall size={16} className="animate-pulse" />
@@ -120,11 +124,14 @@ export default function Navbar() {
                 {item.name}
               </a>
             ))}
+
             <div className="pt-3 mt-2 border-t border-gray-100">
               <a
-                href="#contact"
+                href={googleForm}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-center gap-2 bg-red-600 active:bg-red-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition duration-150"
+                className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition duration-150"
               >
                 <PhoneCall size={18} />
                 <span>Enroll Now</span>
