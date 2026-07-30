@@ -31,6 +31,7 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
+    { name: "Coaches", href: "#coaches" },
     { name: "Programs", href: "#programs" },
     { name: "Gallery", href: "#gallery" },
     { name: "Reviews", href: "#testimonials" },
@@ -60,7 +61,10 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav
+            aria-label="Primary navigation"
+            className="hidden lg:flex items-center gap-8"
+          >
             {navItems.map((item) => (
               <a
                 key={item.name}

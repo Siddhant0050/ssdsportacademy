@@ -40,10 +40,7 @@ export default function About() {
   ];
 
   return (
-    <section
-      id="about"
-      className="bg-white py-14 lg:py-16 scroll-mt-20"
-    >
+    <section id="about" className="bg-white py-14 lg:py-16 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         {/* Heading */}
         <div className="max-w-3xl mx-auto text-center mb-10">
@@ -52,16 +49,17 @@ export default function About() {
           </span>
 
           <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-light leading-tight text-slate-900">
-            Building Strong
+            Safe and Structured
             <span className="font-bold text-red-600">
-              {" "}Foundations
+              {" "}
+              Gymnastics Classes in Dhanori, Pune
             </span>
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
-            Professional gymnastics training that helps children develop
-            strength, confidence, flexibility and discipline in a safe,
-            encouraging environment.
+            Located in Dhanori, Pune, SSD Sport Academy offers professional
+            gymnastics classes for toddlers, kids, and teens focused on
+            confidence, flexibility, discipline, and joyful growth.
           </p>
         </div>
 
@@ -72,7 +70,7 @@ export default function About() {
             <div className="overflow-hidden rounded-3xl shadow-xl border border-slate-100">
               <img
                 src={aboutImage}
-                alt="SSD Sports Academy"
+                alt="Gymnastics classes in Dhanori, Pune at SSD Sport Academy"
                 className="h-[420px] w-full object-cover transition duration-700 hover:scale-105"
               />
             </div>
@@ -81,17 +79,15 @@ export default function About() {
           {/* Content */}
           <div>
             <h3 className="text-2xl sm:text-3xl font-light text-slate-900">
-              Why Parents Choose
-              <span className="font-bold text-red-600">
-                {" "}SSD Sports Academy
-              </span>
+              Why Parents in Dhanori Choose
+              <span className="font-bold text-red-600"> SSD Sport Academy</span>
             </h3>
 
             <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600">
               Our structured coaching programs focus on proper technique,
-              physical fitness and character development. Every session is
-              designed to help children learn safely while enjoying the
-              journey of becoming stronger and more confident.
+              physical fitness, and character development. Every session is
+              designed to help children learn safely while enjoying the journey
+              of becoming stronger, more confident, and more active.
             </p>
 
             {/* Features */}

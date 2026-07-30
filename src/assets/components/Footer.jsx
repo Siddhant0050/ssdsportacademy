@@ -37,8 +37,7 @@ export default function Footer() {
 
             <p className="mt-4 text-sm text-slate-400 leading-relaxed font-light">
               Building confidence, discipline, and athletic excellence through
-              professional gymnastics training in a safe and supportive
-              environment.
+              professional gymnastics classes for kids in Dhanori, Pune.
             </p>
 
             {/* Social Buttons */}
@@ -99,16 +98,13 @@ export default function Footer() {
 
             <div className="space-y-4">
               <div className="flex gap-3 items-start">
-                <MapPin
-                  size={18}
-                  className="text-red-500 shrink-0 mt-0.5"
-                />
+                <MapPin size={18} className="text-red-500 shrink-0 mt-0.5" />
                 <p className="text-sm text-slate-400 leading-relaxed font-light">
                   Pruthvi Sports Zone,
                   <br />
-                  Behind Dhanori MSEB Office,
+                  Dhanori, Pune,
                   <br />
-                  Pune, Maharashtra 411015
+                  Maharashtra 411015
                 </p>
               </div>
 
@@ -159,7 +155,7 @@ export default function Footer() {
             <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
               <p className="text-xs text-slate-400 leading-relaxed font-light">
                 Free trial classes available. Give your child the right platform
-                to grow stronger and confident.
+                to grow stronger, safer, and more confident.
               </p>
             </div>
           </div>

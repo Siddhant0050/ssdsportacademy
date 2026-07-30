@@ -11,7 +11,7 @@ export default function Programs() {
       age: "4 - 6 Years",
       duration: "60 Mins",
       focus:
-        "Building balance, coordination, confidence, and basic movement skills through safe training.",
+        "Safe first steps in gymnastics for toddlers and young children in Dhanori, Pune.",
       badge: "Beginner",
       badgeBg: "bg-emerald-500",
       image: image1,
@@ -22,7 +22,7 @@ export default function Programs() {
       age: "7 - 10 Years",
       duration: "60 Mins",
       focus:
-        "Developing flexibility, strength, posture control, and essential gymnastics techniques.",
+        "Perfect for school-age children building flexibility, control, and confidence through structured coaching.",
       badge: "Popular",
       badgeBg: "bg-red-600",
       image: image2,
@@ -33,7 +33,7 @@ export default function Programs() {
       age: "11 - 15 Years",
       duration: "60 Mins",
       focus:
-        "Performance focused training with advanced skills, conditioning, and competitive preparation.",
+        "Advanced coaching for teens ready to improve technique, conditioning, and performance with confidence.",
       badge: "Elite",
       badgeBg: "bg-slate-900",
       image: image3,
@@ -54,13 +54,14 @@ export default function Programs() {
           </span>
 
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight">
-            Training Programs{" "}
-            <span className="font-bold text-red-600">Built For Growth</span>
+            Gymnastics Programs for
+            <span className="font-bold text-red-600"> Kids in Dhanori</span>
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light leading-relaxed">
-            Age-based gymnastics programs designed to develop strength,
-            confidence, flexibility, and athletic ability.
+            Age-based gymnastics training for toddlers to teens, designed to
+            build strength, balance, flexibility, and confidence in a safe,
+            encouraging environment.
           </p>
         </div>
 
@@ -77,6 +78,7 @@ export default function Programs() {
                   src={prog.image}
                   alt={prog.title}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
 
@@ -127,7 +129,7 @@ export default function Programs() {
                   href="#contact"
                   className="mt-6 flex items-center justify-between rounded-full bg-slate-900 px-5 py-3 text-sm text-white font-semibold hover:bg-red-600 transition-colors duration-300 shadow-sm"
                 >
-                  <span>Book Free Trial</span>
+                  <span>Reserve Your Trial</span>
                   <ArrowRight
                     size={16}
                     className="group-hover:translate-x-1 transition-transform duration-300"

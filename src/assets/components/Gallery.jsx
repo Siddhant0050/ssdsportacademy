@@ -63,9 +63,7 @@ export default function Gallery() {
 
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight">
               Moments From{" "}
-              <span className="font-bold text-red-600">
-                SSD Sports Academy
-              </span>
+              <span className="font-bold text-red-600">SSD Sports Academy</span>
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-slate-600 font-light leading-relaxed">

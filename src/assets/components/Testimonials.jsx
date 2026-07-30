@@ -24,9 +24,7 @@ export default function Testimonials() {
 
             <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight">
               Parents Trust{" "}
-              <span className="font-bold text-red-600">
-                SSD Sports Academy
-              </span>
+              <span className="font-bold text-red-600">SSD Sports Academy</span>
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-slate-500 font-light leading-relaxed">
@@ -169,7 +167,7 @@ export default function Testimonials() {
       </div>
 
       {/* Swiper Custom Pagination Style Overrides */}
-      <style jsx global>{`
+      <style>{`
         .testimonial-wrapper .swiper-wrapper {
           align-items: stretch;
         }

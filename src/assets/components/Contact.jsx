@@ -25,13 +25,13 @@ export default function Contact() {
           </span>
 
           <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight">
-            Start Your Child's{" "}
-            <span className="font-bold text-red-600">Gymnastics Journey</span>
+            Join the Best Gymnastics Classes in
+            <span className="font-bold text-red-600"> Dhanori, Pune</span>
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-slate-500 font-light leading-relaxed">
-            Visit SSD Sports Academy for a trial session and experience
-            professional gymnastics coaching in a safe environment.
+            Visit SSD Sport Academy for a free trial class and experience
+            professional gymnastics coaching in a safe, encouraging environment.
           </p>
         </div>
 
@@ -47,13 +47,15 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h3 className="font-bold text-slate-900 text-base">Address</h3>
+                  <h3 className="font-bold text-slate-900 text-base">
+                    Address
+                  </h3>
                   <p className="mt-1 text-sm text-slate-500 leading-relaxed font-light">
                     S. No.19, Road No.11, Kamal Park,
                     <br />
                     M.S.E.B Office, Pruthvi Sports Zone,
                     <br />
-                    Behind Dhanori, Pune - 411015
+                    Dhanori, Pune - 411015
                   </p>
                 </div>
               </div>
@@ -84,7 +86,9 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-slate-900 text-sm">Instagram</h3>
+                    <h3 className="font-bold text-slate-900 text-sm">
+                      Instagram
+                    </h3>
                     <a
                       href="https://instagram.com/ssdsportacademy"
                       target="_blank"
@@ -133,7 +137,9 @@ export default function Contact() {
                     key={index}
                     className="flex justify-between text-sm items-center"
                   >
-                    <span className="text-slate-500 font-light">{time.day}</span>
+                    <span className="text-slate-500 font-light">
+                      {time.day}
+                    </span>
                     <span
                       className={
                         time.closed
@@ -153,7 +159,7 @@ export default function Contact() {
           <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-lg min-h-[400px] h-full">
             <iframe
               title="SSD Sports Academy Location"
-              src="https://www.google.com/maps?q=SSD+Sport+Academy,+Dhanori,+Pune&output=embed"
+              src="https://www.google.com/maps?q=SSD+Sport+Academy,+Pruthvi+Sports+Zone,+Dhanori,+Pune&output=embed"
               width="100%"
               height="100%"
               loading="lazy"
