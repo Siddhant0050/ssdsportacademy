@@ -7,17 +7,18 @@ export default function Coaches() {
     {
       name: "Somesh Daterao",
       role: "Head Coach",
-      specialization: "National Team Coach • Artistic & Acrobatic Gymnastics",
-      experience: "10+ years",
-      bio: "National Team Coach and National-level gymnast with over 10 years of coaching experience. He is dedicated to helping every athlete build strong skills, confidence, and a winning mindset.",
+      specialization:
+        "NIS Certified • National Team Coach • Artistic & Acrobatic Gymnastics",
+      experience: "10+ Years",
+      bio: "NIS Certified Coach and National-level gymnast with over 10 years of coaching experience. Passionate about helping athletes build technical excellence, confidence, and a winning mindset.",
       image: coach1,
     },
     {
       name: "Pavan Daterao",
-      role: "Senior Coach",
+      role: "Former Senior Coach",
       specialization: "Artistic & Acrobatic Gymnastics",
-      experience: "8+ years",
-      bio: "School National Gold Medalist in Acrobatic Gymnastics at Agra, Uttar Pradesh. He enjoys working with young athletes and helping them grow with the right technique and discipline.",
+      experience: "8+ Years",
+      bio: "School National Gold Medalist in Acrobatic Gymnastics at Agra, Uttar Pradesh. Contributed to developing young gymnasts through strong technical training and disciplined coaching until 2025.",
       image: coach2,
     },
     {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, PhoneCall } from "lucide-react";
-import logo from "../images/logo.png";
+import Websitelogo from "../images/Websitelogo.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -48,14 +48,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Websitelogo */}
           <a
             href="#home"
             className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-lg p-1 transition"
           >
             <img
-              src={logo}
-              alt="Academy Logo"
+              src={Websitelogo}
+              alt="Academy Websitelogo"
               className="h-12 sm:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
           </a>
