@@ -30,7 +30,7 @@ function App() {
       </ErrorBoundary>
       <main id="main-content">
         <ErrorBoundary componentName="Hero section">
-          <Hero />
+          <Hero onEnroll={openEnroll} />
         </ErrorBoundary>
         <ErrorBoundary componentName="About section">
           <About />
