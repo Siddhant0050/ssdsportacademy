@@ -1,16 +1,16 @@
-
 /* 2. Google Fonts: Outfit (Headings) + Inter (Body Text) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap");
 
 /* 1. Tailwind CSS v4 Engine Import */
 @import "tailwindcss";
 
-
 /* 3. Global CSS Variables & Base Overrides */
 @layer base {
   :root {
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-heading: 'Outfit', sans-serif;
+    --font-sans:
+      "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      sans-serif;
+    --font-heading: "Outfit", sans-serif;
   }
 
   html {
@@ -32,14 +32,21 @@
   }
 
   /* Automatically Apply Athletic Outfit Font to All Headings */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-heading);
     letter-spacing: -0.01em;
   }
 }
 
 /* 4. Layout & Reset Guardrails */
-*, ::before, ::after {
+*,
+::before,
+::after {
   box-sizing: border-box;
 }
 
@@ -85,7 +92,6 @@
   }
 }
 
-
 @keyframes fadeScale {
   from {
     opacity: 0;
@@ -97,7 +103,6 @@
     transform: scale(1);
   }
 }
-
 
 @keyframes slideLeft {
   from {
@@ -111,7 +116,6 @@
   }
 }
 
-
 @keyframes slideRight {
   from {
     opacity: 0;
@@ -124,21 +128,17 @@
   }
 }
 
-
 .animate-slideUp {
   animation: slideUp 0.9s ease;
 }
-
 
 .animate-fadeScale {
   animation: fadeScale 0.9s ease;
 }
 
-
 .animate-slideLeft {
   animation: slideLeft 0.9s ease;
 }
-
 
 .animate-slideRight {
   animation: slideRight 0.9s ease;

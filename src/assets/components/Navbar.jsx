@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, PhoneCall } from "lucide-react";
-import logo from "../images/logo.png";
+import Websitelogo from "../images/Websitelogo.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,6 +31,7 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
+    { name: "Coaches", href: "#coaches" },
     { name: "Programs", href: "#programs" },
     { name: "Gallery", href: "#gallery" },
     { name: "Reviews", href: "#testimonials" },
@@ -47,20 +48,23 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Websitelogo */}
           <a
             href="#home"
             className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-lg p-1 transition"
           >
             <img
-              src={logo}
-              alt="Academy Logo"
+              src={Websitelogo}
+              alt="Academy Websitelogo"
               className="h-12 sm:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav
+            aria-label="Primary navigation"
+            className="hidden lg:flex items-center gap-8"
+          >
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -95,6 +99,8 @@ export default function Navbar() {
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle navigation menu"
+            aria-controls="mobile-menu"
+            aria-expanded={menuOpen}
             className={`lg:hidden p-2.5 rounded-xl transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 ${
               isScrolled
                 ? "bg-gray-100 text-gray-800 hover:bg-gray-200"
@@ -108,30 +114,37 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <div
-        className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          menuOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
+        id="mobile-menu"
+        className={`lg:hidden transition-[max-height,opacity] duration-300 ease-in-out overflow-hidden ${
+          menuOpen
+            ? "max-h-[calc(100vh-5rem)] opacity-100"
+            : "max-h-0 opacity-0"
         }`}
+        aria-expanded={menuOpen}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-3 pb-4">
-          <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 space-y-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-2 pb-4">
+          <div
+            className="bg-white/95 rounded-2xl shadow-2xl border border-gray-100 p-3 sm:p-4 space-y-1 overflow-y-auto touch-pan-y max-h-[calc(100vh-6rem)]"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="block px-4 py-3 rounded-xl text-base font-semibold text-gray-700 hover:text-red-600 hover:bg-red-50/60 transition-colors duration-150"
+                className="block px-3 py-2 rounded-xl text-sm font-semibold text-gray-700 hover:text-red-600 hover:bg-red-50/60 transition-colors duration-150"
               >
                 {item.name}
               </a>
             ))}
 
-            <div className="pt-3 mt-2 border-t border-gray-100">
+            <div className="pt-2 mt-2 border-t border-gray-100">
               <a
                 href={googleForm}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition duration-150"
+                className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold py-3 px-4 rounded-xl shadow-md transition duration-150"
               >
                 <PhoneCall size={18} />
                 <span>Enroll Now</span>

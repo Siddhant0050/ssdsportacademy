@@ -1,6 +1,17 @@
-import { MapPin, Phone, Mail, Clock, ChevronRight } from "lucide-react";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
-import logo from "../images/logo.png";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  ChevronRight,
+} from "lucide-react";
+import {
+  FaInstagram,
+  FaWhatsapp,
+  FaFacebookF,
+  FaYoutube,
+} from "react-icons/fa";
+import Websitelogo from "../images/Websitelogo.png";
 
 export default function Footer() {
   const quickLinks = [
@@ -14,21 +25,23 @@ export default function Footer() {
 
   return (
     <footer className="bg-black text-slate-300 overflow-hidden border-t border-slate-900">
-      {/* Main Footer Section */}
+      {/* Main Footer */}
       <div className="max-w-6xl mx-auto px-5 sm:px-6 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
-          {/* Brand & Mission */}
+          {/* Brand */}
           <div>
             <div className="flex items-center gap-3">
               <img
-                src={logo}
+                src={Websitelogo}
                 alt="SSD Sport Academy Logo"
                 className="w-10 h-10 object-contain shrink-0"
               />
+
               <div>
                 <h2 className="text-2xl font-light tracking-[0.15em] text-white leading-tight">
                   SSD <span className="font-bold text-red-600">SPORT</span>
                 </h2>
+
                 <p className="text-[10px] text-red-500 font-semibold uppercase tracking-widest">
                   Gymnastics Academy
                 </p>
@@ -37,8 +50,7 @@ export default function Footer() {
 
             <p className="mt-4 text-sm text-slate-400 leading-relaxed font-light">
               Building confidence, discipline, and athletic excellence through
-              professional gymnastics training in a safe and supportive
-              environment.
+              professional gymnastics classes for kids in Dhanori, Pune.
             </p>
 
             {/* Social Buttons */}
@@ -47,18 +59,40 @@ export default function Footer() {
                 href="https://www.instagram.com/ssdsportacademy/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow us on Instagram"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-slate-800 text-slate-300 hover:border-red-600 hover:text-white transition-all duration-300 text-xs font-medium"
+                aria-label="Instagram"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-slate-800 text-slate-300 hover:border-pink-500 hover:text-white transition-all duration-300 text-xs font-medium"
               >
                 <FaInstagram size={16} />
                 <span>Instagram</span>
               </a>
 
               <a
+                href="https://www.facebook.com/share/188umEgufW/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-slate-800 text-slate-300 hover:border-blue-500 hover:text-white transition-all duration-300 text-xs font-medium"
+              >
+                <FaFacebookF size={15} />
+                <span>Facebook</span>
+              </a>
+
+              <a
+                href="http://www.youtube.com/@SSDSportAcademy"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-slate-800 text-slate-300 hover:border-red-600 hover:text-white transition-all duration-300 text-xs font-medium"
+              >
+                <FaYoutube size={16} />
+                <span>YouTube</span>
+              </a>
+
+              <a
                 href="https://wa.me/919325017557"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Chat with us on WhatsApp"
+                aria-label="WhatsApp"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-red-600 text-white hover:bg-red-700 transition-all duration-300 text-xs font-medium shadow-md shadow-red-950"
               >
                 <FaWhatsapp size={16} />
@@ -91,7 +125,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Details */}
+          {/* Contact */}
           <div>
             <h3 className="text-white font-semibold text-base mb-6 tracking-wide">
               Contact Us
@@ -99,16 +133,13 @@ export default function Footer() {
 
             <div className="space-y-4">
               <div className="flex gap-3 items-start">
-                <MapPin
-                  size={18}
-                  className="text-red-500 shrink-0 mt-0.5"
-                />
+                <MapPin size={18} className="text-red-500 shrink-0 mt-0.5" />
                 <p className="text-sm text-slate-400 leading-relaxed font-light">
                   Pruthvi Sports Zone,
                   <br />
-                  Behind Dhanori MSEB Office,
+                  Dhanori, Pune,
                   <br />
-                  Pune, Maharashtra 411015
+                  Maharashtra 411015
                 </p>
               </div>
 
@@ -134,7 +165,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Academy Working Hours */}
+          {/* Academy Hours */}
           <div>
             <h3 className="text-white font-semibold text-base mb-6 tracking-wide">
               Academy Hours
@@ -142,31 +173,33 @@ export default function Footer() {
 
             <div className="flex gap-3 items-start">
               <Clock size={18} className="text-red-500 shrink-0 mt-0.5" />
+
               <div>
                 <p className="text-white text-sm font-medium">
-                  Saturday – Thursday
+                  Monday – Sunday
                 </p>
+
                 <p className="text-slate-400 text-xs mt-1 font-light">
                   11:00 AM – 8:00 PM
                 </p>
+
                 <p className="text-red-500 text-xs mt-2 font-medium">
-                  Friday Closed
+                  Thursday Closed
                 </p>
               </div>
             </div>
 
-            {/* CTA Box */}
             <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
               <p className="text-xs text-slate-400 leading-relaxed font-light">
                 Free trial classes available. Give your child the right platform
-                to grow stronger and confident.
+                to grow stronger, safer, and more confident.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Copyright Bar */}
+      {/* Copyright */}
       <div className="border-t border-slate-900 bg-black/40">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p className="text-center md:text-left">

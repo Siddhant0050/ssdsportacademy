@@ -1,9 +1,4 @@
-import {
-  ShieldCheck,
-  Users,
-  Trophy,
-  Dumbbell,
-} from "lucide-react";
+import { ShieldCheck, Users, Trophy, Dumbbell } from "lucide-react";
 
 const features = [
   {
@@ -69,15 +64,13 @@ export default function WhyChooseUs() {
 
           <h2 className="mt-5 text-3xl font-light leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Building{" "}
-            <span className="font-bold text-red-600">
-              Future Champions
-            </span>
+            <span className="font-bold text-red-600">Future Champions</span>
           </h2>
 
           <p className="mt-4 text-sm font-light leading-relaxed text-slate-600 sm:text-base">
-            A professional gymnastics academy where children develop
-            strength, confidence, discipline, and lifelong fitness in a
-            safe and encouraging environment.
+            A professional gymnastics academy where children develop strength,
+            confidence, discipline, and lifelong fitness in a safe and
+            encouraging environment.
           </p>
         </div>
 
