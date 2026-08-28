@@ -50,13 +50,19 @@ export default function Contact() {
                   <h3 className="font-bold text-slate-900 text-base">
                     Address
                   </h3>
-                  <p className="mt-1 text-sm text-slate-500 leading-relaxed font-light">
+                  <a
+                    href="https://www.google.com/maps/dir/18.6094652,73.9149053/SSD+SPORTS+ACADEMY,+S.+No.19,+Rd.+No.+11,+Kamal+Park,+M.S.E.B.+office,+Sports+Kingdom,+behind+Dhanori,+Pune,+Maharashtra+411015/@18.6053159,73.8996968,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bc2c781dab1f179:0xcf585791dd9e2022!2m2!1d73.904768!2d18.5962369?entry=ttu&g_ep=EgoyMDI2MDgxNy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="SSD Sport Academy location on Google Maps"
+                    className="mt-1 text-sm text-slate-500 leading-relaxed font-light hover:text-red-600 transition-colors"
+                  >
                     S. No.19, Road No.11, Kamal Park,
                     <br />
-                    M.S.E.B Office, Pruthvi Sports Zone,
+                    M.S.E.B Office, Sports Kingdom,
                     <br />
                     Dhanori, Pune - 411015
-                  </p>
+                  </a>
                 </div>
               </div>
 
@@ -159,7 +165,7 @@ export default function Contact() {
           <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-lg min-h-[400px] h-full">
             <iframe
               title="SSD Sports Academy Location"
-              src="https://www.google.com/maps?q=SSD+Sport+Academy,+Pruthvi+Sports+Zone,+Dhanori,+Pune&output=embed"
+              src="https://www.google.com/maps?q=18.5962369,73.904768&output=embed"
               width="100%"
               height="100%"
               loading="lazy"

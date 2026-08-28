@@ -11,6 +11,7 @@ import Testimonials from "./assets/components/Testimonials";
 import Contact from "./assets/components/Contact";
 import Footer from "./assets/components/Footer";
 import EnrollForm from "./assets/components/EnrollForm";
+import PopupEnroll from "./assets/components/PopupEnroll";
 
 function App() {
   const [showEnroll, setShowEnroll] = useState(false);
@@ -59,6 +60,7 @@ function App() {
           <EnrollForm onClose={closeEnroll} />
         </ErrorBoundary>
       )}
+      <PopupEnroll />
       <ErrorBoundary componentName="Footer">
         <Footer />
       </ErrorBoundary>

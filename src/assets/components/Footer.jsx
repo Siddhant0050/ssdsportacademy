@@ -134,13 +134,19 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex gap-3 items-start">
                 <MapPin size={18} className="text-red-500 shrink-0 mt-0.5" />
-                <p className="text-sm text-slate-400 leading-relaxed font-light">
-                  Pruthvi Sports Zone,
+                <a
+                  href="https://www.google.com/maps/dir/18.6094652,73.9149053/SSD+SPORTS+ACADEMY,+S.+No.19,+Rd.+No.+11,+Kamal+Park,+M.S.E.B.+office,+Sports+Kingdom,+behind+Dhanori,+Pune,+Maharashtra+411015/@18.6053159,73.8996968,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bc2c781dab1f179:0xcf585791dd9e2022!2m2!1d73.904768!2d18.5962369?entry=ttu&g_ep=EgoyMDI2MDgxNy4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="SSD Sport Academy location on Google Maps"
+                  className="text-sm text-slate-400 leading-relaxed font-light hover:text-white transition-colors"
+                >
+                  Sports Kingdom,
                   <br />
                   Dhanori, Pune,
                   <br />
                   Maharashtra 411015
-                </p>
+                </a>
               </div>
 
               <div className="flex gap-3 items-center">

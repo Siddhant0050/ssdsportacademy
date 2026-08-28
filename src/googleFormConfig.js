@@ -6,6 +6,8 @@
 const googleFormConfig = {
   formAction:
     "https://docs.google.com/forms/d/e/1FAIpQLSdkHjgKqBZirKUBOzfO2rBYWYLUrpZK6KGGmlvwBdWMlKeL9A/formResponse",
+  popupFormAction:
+    "https://docs.google.com/forms/d/e/1FAIpQLSd5F1lm--QU-vpYjaPMtLvXca5s50U8uMQjXnccARBJhBbIiw/formResponse",
   fieldMap: {
     fullName: "entry.1223401285",
     age: "entry.358473649",
@@ -16,6 +18,11 @@ const googleFormConfig = {
     trialDate: "entry.1799610497",
     experience: "entry.172790348",
     message: "entry.890134894",
+  },
+  popupFieldMap: {
+    parentName: "entry.36240118",
+    phone: "entry.1957650895",
+    age: "entry.1815141392",
   },
 };
 
