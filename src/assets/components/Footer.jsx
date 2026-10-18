@@ -13,15 +13,40 @@ import {
 } from "react-icons/fa";
 import Websitelogo from "../images/Websitelogo.png";
 
-export default function Footer() {
+export default function Footer({
+  isCareersPage = false,
+  isContactPage = false,
+  onNavigate,
+}) {
+  const isSecondaryPage = isCareersPage || isContactPage;
   const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Programs", href: "#programs" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Reviews", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: isSecondaryPage ? "/" : "#home" },
+    { name: "About", href: isSecondaryPage ? "/#about" : "#about" },
+    { name: "Programs", href: isSecondaryPage ? "/#programs" : "#programs" },
+    { name: "Gallery", href: isSecondaryPage ? "/#gallery" : "#gallery" },
+    {
+      name: "Reviews",
+      href: isSecondaryPage ? "/#testimonials" : "#testimonials",
+    },
+    { name: "Contact", href: "/contact" },
+    { name: "Careers", href: "/careers" },
   ];
+
+  const handleNavigation = (event, href) => {
+    if (
+      !onNavigate ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    onNavigate(href);
+  };
 
   return (
     <footer className="bg-black text-slate-300 overflow-hidden border-t border-slate-900">
@@ -112,6 +137,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
+                    onClick={(event) => handleNavigation(event, link.href)}
                     className="group flex items-center gap-2 text-sm text-slate-400 hover:text-red-500 transition-colors duration-200"
                   >
                     <ChevronRight

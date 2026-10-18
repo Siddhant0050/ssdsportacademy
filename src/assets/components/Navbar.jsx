@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { Menu, X, PhoneCall } from "lucide-react";
 import logo from "../images/Websitelogo.png";
 
-export default function Navbar({ onEnroll }) {
+export default function Navbar({
+  onEnroll,
+  onNavigate,
+  isCareersPage = false,
+  isContactPage = false,
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -26,15 +31,46 @@ export default function Navbar({ onEnroll }) {
     };
   }, []);
 
-  const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Coaches", href: "#coaches" },
-    { name: "Programs", href: "#programs" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Reviews", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
-  ];
+  const isSecondaryPage = isCareersPage || isContactPage;
+  const navItems = isSecondaryPage
+    ? [
+        { name: "Home", href: "/#home" },
+        { name: "About", href: "/#about" },
+        { name: "Coaches", href: "/#coaches" },
+        { name: "Programs", href: "/#programs" },
+        { name: "Gallery", href: "/#gallery" },
+        { name: "Reviews", href: "/#testimonials" },
+        { name: "Contact", href: "/contact" },
+        { name: "Careers", href: "/careers" },
+      ]
+    : [
+        { name: "Home", href: "#home" },
+        { name: "About", href: "#about" },
+        { name: "Coaches", href: "#coaches" },
+        { name: "Programs", href: "#programs" },
+        { name: "Gallery", href: "#gallery" },
+        { name: "Reviews", href: "#testimonials" },
+        { name: "Contact", href: "/contact" },
+        { name: "Careers", href: "/careers" },
+      ];
+  const lightHeader = isScrolled || isSecondaryPage;
+
+  const handleNavigation = (event, href) => {
+    if (
+      !onNavigate ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    setMenuOpen(false);
+    onNavigate(href);
+  };
 
   const handleEnroll = () => {
     setMenuOpen(false);
@@ -47,7 +83,7 @@ export default function Navbar({ onEnroll }) {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
+        lightHeader
           ? "bg-white/95 backdrop-blur-md shadow-md py-3.5 border-b border-gray-100"
           : "bg-gradient-to-b from-black/60 via-black/20 to-transparent backdrop-blur-[2px] py-5"
       }`}
@@ -56,9 +92,12 @@ export default function Navbar({ onEnroll }) {
         <div className="flex items-center justify-between">
           {/* ==================== LOGO ==================== */}
           <a
-            href="#home"
+            href={isSecondaryPage ? "/" : "#home"}
             aria-label="SSD Sports Academy Home"
-            onClick={() => setMenuOpen(false)}
+            onClick={(event) => {
+              setMenuOpen(false);
+              if (isSecondaryPage) handleNavigation(event, "/");
+            }}
             className="shrink-0"
           >
             <img
@@ -83,15 +122,29 @@ export default function Navbar({ onEnroll }) {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(event) => handleNavigation(event, item.href)}
+                aria-current={
+                  (item.name === "Careers" && isCareersPage) ||
+                  (item.name === "Contact" && isContactPage)
+                    ? "page"
+                    : undefined
+                }
                 className={`group relative text-sm font-semibold tracking-wide transition-colors duration-200 py-1 ${
-                  isScrolled
+                  lightHeader
                     ? "text-gray-700 hover:text-red-600"
                     : "text-white/90 hover:text-white"
                 }`}
               >
                 {item.name}
 
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-red-600 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+                <span
+                  className={`absolute inset-x-0 bottom-0 h-0.5 origin-left bg-red-600 transition-transform duration-300 ${
+                    (item.name === "Careers" && isCareersPage) ||
+                    (item.name === "Contact" && isContactPage)
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
               </a>
             ))}
           </nav>
@@ -119,7 +172,7 @@ export default function Navbar({ onEnroll }) {
             aria-controls="mobile-menu"
             aria-expanded={menuOpen}
             className={`lg:hidden p-2.5 rounded-xl transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 ${
-              isScrolled
+              lightHeader
                 ? "bg-gray-100 text-gray-800 hover:bg-gray-200"
                 : "bg-white/15 text-white hover:bg-white/25 backdrop-blur-md"
             }`}
@@ -151,7 +204,13 @@ export default function Navbar({ onEnroll }) {
               <a
                 key={item.name}
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(event) => handleNavigation(event, item.href)}
+                aria-current={
+                  (item.name === "Careers" && isCareersPage) ||
+                  (item.name === "Contact" && isContactPage)
+                    ? "page"
+                    : undefined
+                }
                 className="block px-3 py-2.5 rounded-xl text-sm font-semibold text-gray-700 hover:text-red-600 hover:bg-red-50/60 active:bg-red-50 transition-colors duration-150"
               >
                 {item.name}
