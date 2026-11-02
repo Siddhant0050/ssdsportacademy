@@ -346,7 +346,7 @@ export default function Gallery() {
         .gallery-swiper .swiper-pagination-bullet-active {
           width: 28px !important;
           border-radius: 999px;
-          background: #dc2626 !important;
+          background: var(--color-athletic-red) !important;
         }
 
         .gallery-swiper .swiper-slide {

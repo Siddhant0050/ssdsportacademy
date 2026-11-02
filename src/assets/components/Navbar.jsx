@@ -8,6 +8,7 @@ export default function Navbar({
   onNavigate,
   isCareersPage = false,
   isContactPage = false,
+  isBlogPage = false,
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,7 +33,7 @@ export default function Navbar({
     };
   }, []);
 
-  const isSecondaryPage = isCareersPage || isContactPage;
+  const isSecondaryPage = isCareersPage || isContactPage || isBlogPage;
   const navItems = isSecondaryPage
     ? [
         { name: "Home", href: "/#home" },
@@ -41,7 +42,7 @@ export default function Navbar({
         { name: "Programs", href: "/#programs" },
         { name: "Gallery", href: "/#gallery" },
         { name: "Reviews", href: "/#testimonials" },
-        { name: "Blog", href: "/#blog" },
+        { name: "Blog", href: "/blog" },
         { name: "Contact", href: "/contact" },
         { name: "Careers", href: "/careers" },
       ]
@@ -52,7 +53,7 @@ export default function Navbar({
         { name: "Programs", href: "#programs" },
         { name: "Gallery", href: "#gallery" },
         { name: "Reviews", href: "#testimonials" },
-        { name: "Blog", href: "#blog" },
+        { name: "Blog", href: "/blog" },
         { name: "Contact", href: "/contact" },
         { name: "Careers", href: "/careers" },
       ];
@@ -128,7 +129,8 @@ export default function Navbar({
                 onClick={(event) => handleNavigation(event, item.href)}
                 aria-current={
                   (item.name === "Careers" && isCareersPage) ||
-                  (item.name === "Contact" && isContactPage)
+                  (item.name === "Contact" && isContactPage) ||
+                  (item.name === "Blog" && isBlogPage)
                     ? "page"
                     : undefined
                 }
@@ -143,7 +145,8 @@ export default function Navbar({
                 <span
                   className={`absolute inset-x-0 bottom-0 h-0.5 origin-left bg-red-600 transition-transform duration-300 ${
                     (item.name === "Careers" && isCareersPage) ||
-                    (item.name === "Contact" && isContactPage)
+                    (item.name === "Contact" && isContactPage) ||
+                    (item.name === "Blog" && isBlogPage)
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100"
                   }`}
@@ -210,7 +213,8 @@ export default function Navbar({
                 onClick={(event) => handleNavigation(event, item.href)}
                 aria-current={
                   (item.name === "Careers" && isCareersPage) ||
-                  (item.name === "Contact" && isContactPage)
+                  (item.name === "Contact" && isContactPage) ||
+                  (item.name === "Blog" && isBlogPage)
                     ? "page"
                     : undefined
                 }

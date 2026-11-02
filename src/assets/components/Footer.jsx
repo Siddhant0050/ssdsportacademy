@@ -16,9 +16,10 @@ import Websitelogo from "../images/Websitelogo.png";
 export default function Footer({
   isCareersPage = false,
   isContactPage = false,
+  isBlogPage = false,
   onNavigate,
 }) {
-  const isSecondaryPage = isCareersPage || isContactPage;
+  const isSecondaryPage = isCareersPage || isContactPage || isBlogPage;
   const quickLinks = [
     { name: "Home", href: isSecondaryPage ? "/" : "#home" },
     { name: "About", href: isSecondaryPage ? "/#about" : "#about" },

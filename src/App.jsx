@@ -15,6 +15,17 @@ import PopupEnroll from "./assets/components/PopupEnroll";
 import Careers from "./assets/components/Careers";
 import BlogSection from "./assets/components/Blog/BlogSection";
 
+function getBlogSlug(pathname) {
+  if (!pathname.startsWith("/blog/")) return undefined;
+  const slug = pathname.slice("/blog/".length);
+
+  try {
+    return decodeURIComponent(slug);
+  } catch {
+    return slug;
+  }
+}
+
 function App() {
   const [showEnroll, setShowEnroll] = useState(false);
   const [pathname, setPathname] = useState(
@@ -57,7 +68,9 @@ function App() {
 
   const isCareersPage = pathname === "/careers";
   const isContactPage = pathname === "/contact";
-  const isHomePage = !isCareersPage && !isContactPage;
+  const isBlogPage = pathname === "/blog" || pathname.startsWith("/blog/");
+  const blogSlug = getBlogSlug(pathname);
+  const isHomePage = !isCareersPage && !isContactPage && !isBlogPage;
 
   return (
     <>
@@ -73,6 +86,7 @@ function App() {
           onNavigate={navigate}
           isCareersPage={isCareersPage}
           isContactPage={isContactPage}
+          isBlogPage={isBlogPage}
         />
       </ErrorBoundary>
       <main id="main-content">
@@ -83,6 +97,10 @@ function App() {
         ) : isContactPage ? (
           <ErrorBoundary componentName="Contact section">
             <Contact />
+          </ErrorBoundary>
+        ) : isBlogPage ? (
+          <ErrorBoundary componentName="Blog page">
+            <BlogSection slug={blogSlug} onNavigate={navigate} />
           </ErrorBoundary>
         ) : (
           <>
@@ -108,7 +126,7 @@ function App() {
               <Testimonials />
             </ErrorBoundary>
             <ErrorBoundary componentName="Blog section">
-              <BlogSection />
+              <BlogSection onNavigate={navigate} />
             </ErrorBoundary>
             <ErrorBoundary componentName="Contact section">
               <Contact />
@@ -126,6 +144,7 @@ function App() {
         <Footer
           isCareersPage={isCareersPage}
           isContactPage={isContactPage}
+          isBlogPage={isBlogPage}
           onNavigate={navigate}
         />
       </ErrorBoundary>

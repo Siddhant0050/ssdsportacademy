@@ -179,7 +179,7 @@ export default function Testimonials() {
           opacity: 1;
         }
         .testimonial-wrapper .swiper-pagination-bullet-active {
-          background: #dc2626 !important;
+          background: var(--color-athletic-red) !important;
           width: 22px !important;
           border-radius: 999px !important;
         }
