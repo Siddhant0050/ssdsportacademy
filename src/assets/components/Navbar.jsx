@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Menu, X, PhoneCall } from "lucide-react";
 import logo from "../images/Websitelogo.png";
@@ -40,6 +41,7 @@ export default function Navbar({
         { name: "Programs", href: "/#programs" },
         { name: "Gallery", href: "/#gallery" },
         { name: "Reviews", href: "/#testimonials" },
+        { name: "Blog", href: "/#blog" },
         { name: "Contact", href: "/contact" },
         { name: "Careers", href: "/careers" },
       ]
@@ -50,6 +52,7 @@ export default function Navbar({
         { name: "Programs", href: "#programs" },
         { name: "Gallery", href: "#gallery" },
         { name: "Reviews", href: "#testimonials" },
+        { name: "Blog", href: "#blog" },
         { name: "Contact", href: "/contact" },
         { name: "Careers", href: "/careers" },
       ];
