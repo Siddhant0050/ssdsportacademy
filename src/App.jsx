@@ -13,6 +13,7 @@ import Footer from "./assets/components/Footer";
 import EnrollForm from "./assets/components/EnrollForm";
 import PopupEnroll from "./assets/components/PopupEnroll";
 import Careers from "./assets/components/Careers";
+import BlogSection from "./assets/components/Blog/BlogSection";
 
 function App() {
   const [showEnroll, setShowEnroll] = useState(false);
@@ -105,6 +106,9 @@ function App() {
             </ErrorBoundary>
             <ErrorBoundary componentName="Testimonials section">
               <Testimonials />
+            </ErrorBoundary>
+            <ErrorBoundary componentName="Blog section">
+              <BlogSection />
             </ErrorBoundary>
             <ErrorBoundary componentName="Contact section">
               <Contact />
